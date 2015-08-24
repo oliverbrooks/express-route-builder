@@ -1,0 +1,24 @@
+{
+  "name": "express-route-builder",
+  "version": "0.0.1",
+  "description": "Build express routes all easy like",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "node",
+    "express"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "debug": "^2.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^0.24.0",
+    "expect.js": "^0.3.1",
+    "express": "^4.13.3",
+    "mocha": "^2.2.5"
+  }
+}
