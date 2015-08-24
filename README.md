@@ -1,5 +1,10 @@
 # Express Route Builder
 
+[![circleci](https://circleci.com/gh/oliverbrooks/express-route-builder.png?style=shield)](https://circleci.com/gh/oliverbrooks/express-route-builder)
+[![Dependency Status](https://david-dm.org/oliverbrooks/express-route-builder.svg)](https://david-dm.org/oliverbrooks/express-route-builder)
+[![Dev Dependency Status](https://david-dm.org/oliverbrooks/express-route-builder/dev-status.svg)](https://david-dm.org/oliverbrooks/express-route-builder#info=devDependencies)
+
+
 When express apps grow beyond a hack day project they often end up with a long middleware chain such as:
 
 * authentication - user logged in?
