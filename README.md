@@ -14,7 +14,7 @@ When express apps grow beyond a hack day project they often end up with a long m
 
 This can turn into a bit of a mess of registering global/route specific middleware.
 
-[Express Route Builder](https://github.com/oliverbrooks/express-middelware-builder) is here to help simplify building those middleware chains. 
+[Express Route Builder](https://github.com/oliverbrooks/express-route-builder) is here to help simplify building those middleware chains. 
 
 ## Objectives
 
@@ -173,16 +173,13 @@ var badgerRoutes = require("./badger_routes")
  * Server setup
  */
 var app = express();
+var badgerRouter = new express.Router();
 
-var badgerRouter = expressRouteBuilder.buildRouter(badgerRoutes);
+// Add routes to router
+expressRouteBuilder.buildRouter(badgerRouter, badgerRoutes);
 
 // Routes
 app.use("/animals", badgerRouter);
-
-// Error handling
-app.use(function (err, req, res, next) {
-    // do something with next(err) errors
-});
 
 app.listen(3000, function (err) {
     if (!err) {
@@ -194,10 +191,25 @@ app.listen(3000, function (err) {
 
 ## Documentation
 
-See `lib/index`
+See `lib/index` and `test/index`.
 
 ## Development
 
 Tests run using mocha or via `npm test`.
 
-To debug middleware generators in your app express-route-builder uses [node-debug]() and logging can be seen with `DEBUG=middleware:* npm start`. This will print all the middleware the app has passed through.
+To debug middleware generators in your app express-route-builder uses [node-debug](https://github.com/visionmedia/debug) and logging can be seen with `DEBUG=middleware:* npm start`. This will print all the middleware the app has passed through.
+
+## TODO
+
+* MiddlewareObjects list is stored on the modules, could move to a constructor to have multiple
+* Potentially insert a Bluebird.cast function into each middleware to handle errors gracefully.
+
+## License
+
+(The MIT License)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

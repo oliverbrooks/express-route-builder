@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "description": "Build express routes all easy like",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/oliverbrooks/express-route-builder.git"
+  },
   "scripts": {
     "test": "mocha"
   },
