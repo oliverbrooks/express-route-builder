@@ -104,6 +104,28 @@ describe("express-route-buidler", function () {
       expect(mockReq.pagination).to.equal("pagination");
       expect(mockReq.authorization).to.equal(route.authorization);
     });
+
+    it("should build an array of route handlers where the route object value is an array", function () {
+      var count = 0;
+
+      expressRouteBuilder.setMiddlewares([
+        {
+          name: "rawHandler",
+          include: "all",
+          generator: function () {
+            count += 1;
+          }
+        }
+      ]);
+
+      expressRouteBuilder.buildMiddlewares({
+        method: "get",
+        path: "/fish",
+        rawHandler: ["1", "2", "3", "4"]
+      });
+
+      expect(count).to.equal(4);
+    });
   });
 
   describe("buildRouter", function () {
