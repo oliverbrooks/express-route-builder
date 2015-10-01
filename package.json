@@ -1,6 +1,6 @@
 {
   "name": "express-route-builder",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Build express routes all easy like",
   "main": "index.js",
   "repository": {
